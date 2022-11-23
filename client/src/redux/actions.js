@@ -15,9 +15,7 @@ export const CLEAN = "CLEAN";
 
 export function getVideogames() {
     return async function (dispatch) {
-        await fetch(
-            "https://pi-videogames-back-production.up.railway.app/videogames"
-        )
+        await fetch("https://railwaybackpivideogames.com/videogames")
             .then((res) => res.json())
             .then((json) => {
                 dispatch({
@@ -32,7 +30,7 @@ export function getVideogamesByName(name) {
     return async function (dispatch) {
         try {
             let json = await axios.get(
-                `https://pi-videogames-back-production.up.railway.app/videogames?name=${name}`
+                `https://railwaybackpivideogames.com/videogames?name=${name}`
             );
             return dispatch({
                 type: "GET_VIDEOGAMES_BY_NAME",
@@ -60,9 +58,7 @@ export function getRatingFilter(payload) {
 
 export function getGenres() {
     return async function (dispatch) {
-        let json = await axios.get(
-            "https://pi-videogames-back-production.up.railway.app/genre"
-        );
+        let json = await axios.get("https://railwaybackpivideogames.com/genre");
         return dispatch({
             type: "GET_GENRES",
             payload: json.data,
@@ -73,7 +69,7 @@ export function getGenres() {
 export function getPlatforms() {
     return async function (dispatch) {
         let json = await axios.get(
-            "https://pi-videogames-back-production.up.railway.app/platforms"
+            "https://railwaybackpivideogames.com/platforms"
         );
         return dispatch({
             type: "GET_PLATFORMS",
@@ -112,7 +108,7 @@ export function getDbApiFilter(payload) {
 export function getVideogamesDetail(id) {
     return async function (dispatch) {
         let json = await axios.get(
-            `https://pi-videogames-back-production.up.railway.app/videogame/${id}`
+            `https://railwaybackpivideogames.com/videogame/${id}`
         );
         return dispatch({
             type: "GET_VIDEOGAMES_DETAIL",
@@ -126,7 +122,7 @@ export function createVideogame(payload) {
         try {
             console.log(payload);
             return await axios.post(
-                "https://pi-videogames-back-production.up.railway.app/videogame",
+                "https://railwaybackpivideogames.com/videogame",
                 payload
             );
         } catch (error) {
